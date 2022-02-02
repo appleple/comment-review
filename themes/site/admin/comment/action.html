@@ -1,0 +1,11 @@
+<!-- BEGIN adminCommentAction:veil -->
+<form action="{target}" method="post">
+  <button type="submit" name="ACMS_POST_Comment_Edit" class="acms-admin-btn-flat acms-admin-margin-top-mini"><span class="acms-admin-icon-control-edit"></span> <!--T-->編集<!--/T--></button>
+	<!-- BEGIN replyLink:veil -->
+	<a href="{replyUrl}#comment" class="acms-admin-btn-flat acms-admin-margin-top-mini"><span class="acms-admin-icon-comment"></span>返信</a>
+	<!-- END replyLink:veil --><!-- BEGIN status#open -->
+  <button type="submit" name="ACMS_POST_Comment_Status_Open" class="acms-admin-btn-flat acms-admin-margin-top-mini"><span class="acms-admin-icon-control-edit"></span> <!--T-->編集<!--/T--></button>
+  <button type="submit" name="ACMS_POST_Comment_Status_Open" class="acms-admin-btn-flat acms-admin-margin-top-mini"><span class="acms-admin-icon-news"></span> <!--T-->未処理にする<!--/T--></button><!-- END status#open --><!-- BEGIN status#close -->
+  <button type="submit" name="ACMS_POST_Comment_Status_Close" class="acms-admin-btn-flat acms-admin-margin-top-mini"><span class="acms-admin-icon-checklist"></span> <!--T-->処理済みにする<!--/T--></button><!-- END status#close --><!-- BEGIN status#awaiting -->
+  <button type="submit" name="ACMS_POST_Comment_Status_Awaiting" class="acms-admin-btn-flat acms-admin-margin-top-mini"><span class="acms-admin-icon-time"></span> <!--T-->承認待ちにする<!--/T--></button><!-- END status#awaiting -->
+</form><!-- END adminCommentAction:veil -->

@@ -1,0 +1,1 @@
+【新しい修正依頼がありました】 優先度・{title} - %{ENTRY_TITLE} | %{BLOG_NAME}

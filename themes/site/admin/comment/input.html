@@ -1,0 +1,67 @@
+<script>
+  function change_value(el) {
+    var priority = document.getElementById('priority').value;
+    var title = document.getElementById('title_memo').value;
+
+    var result = document.getElementById('js-sync-result');
+
+    result.value = priority + '：' + title;
+  }
+
+  document.addEventListener('DOMContentLoaded', function(){
+    var targets = document.getElementsByClassName('js-sync-target');
+
+    targets = [].slice.call( targets ) ;
+    targets.forEach( function ( target ) {
+      target.addEventListener('change', function() {
+        change_value();
+      });
+    } ) ;
+  });
+</script>
+
+<div class="comment-form-group --column">
+  <label for="title_memo" class="comment-form__label">タイトル</label>
+  <input type="text" name="title_memo" id="title_memo" required value="" placeholder="タイトルを記入してください" class="acms-admin-form-width-full js-sync-target">
+</div>
+
+<div class="comment-form-group --column">
+  <label for="comment-body" class="comment-form__label">詳細</label>
+  <div>
+    <textarea name="body"  id="comment-body" required rows="5" class="acms-admin-form-width-full" placeholder="ここに詳しい内容を入力してください">{body}</textarea>
+    <input type="hidden" name="comment[]" value="body" />
+    <input type="hidden" name="body:validator#required" id="validator-body-required" />
+    <input type="hidden" name="body:validator#blackList" id="validator-body-blackList" />
+    <p class="validator-result-{body:validator#required}">詳しい内容を入力してください。</p>
+    <p class="validator-result-{body:validator#blackList}">詳しい内容に不適切な言葉が含まれています</p>
+  </div>
+</div>
+
+<div class="comment-form-group --row">
+  <div class="comment-form-group --row --row-item">
+    <label for="priority" class="comment-form__label">優先順位</label>
+    <select name="priority" id="priority" required class="js-sync-target acms-admin-form-width-full">
+      <option value="">---</option>
+      <option value="高" <!-- BEGIN_IF [{title}[split('：',0)]/eq/高] -->selected<!-- END_IF -->>高</option>
+      <option value="中" <!-- BEGIN_IF [{title}[split('：',0)]/eq/中] -->selected<!-- END_IF -->>中</option>
+      <option value="低" <!-- BEGIN_IF [{title}[split('：',0)]/eq/低] -->selected<!-- END_IF -->>低</option>
+    </select>
+  </div>
+
+  <div class="comment-form-group --row --row-item">
+    <p class="comment-form__label">記入者</p>
+    <p>{name}</p>
+  </div>
+</div>
+
+<input type="hidden" name="title" id="js-sync-result" value="{title}">
+<input type="hidden" name="comment[]" value="title" />
+
+<input type="hidden" name="name" value="%{SESSION_USER_NAME}">
+<input type="hidden" name="comment[]" value="name" />
+<input type="hidden" name="mail" value="%{SESSION_USER_MAIL}">
+<input type="hidden" name="comment[]" value="mail">
+<input type="hidden" name="pass" value="%{Y}%{m}%{d}">
+<input type="hidden" name="comment[]" value="pass" />
+<input type="hidden" name="persistent" value="on" />
+<input type="hidden" name="comment[]" value="persistent" />

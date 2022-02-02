@@ -1,0 +1,18 @@
+<table class="comment-table">
+	<tr>
+		<th>タイトル</th>
+		<td>{title}[split('：',1)]</td>
+	</tr>
+	<tr>
+		<th>コメント</th>
+		<td>{body}[escape|nl2br]</td>
+	</tr>
+  <tr>
+    <th>優先度</th>
+    <td>{title}[split('：',0)]</td>
+  </tr>
+  <tr>
+    <th>投稿者</th>
+    <td>{name}</td>
+  </tr>
+</table>
